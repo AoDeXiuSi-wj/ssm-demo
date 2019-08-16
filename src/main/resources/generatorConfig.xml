@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--导入属性配置 -->
+    <properties resource="generator.properties"/>
+
+    <classPathEntry
+            location="F:\Maven-3.5.2\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar" />
+    <context id="context1">
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${jdbc.driverClassName}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}" />
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="${modelPackage}"
+                            targetProject="${modelProject}" />
+        <sqlMapGenerator targetPackage="${sqlPackage}" targetProject="${sqlProject}" />
+        <javaClientGenerator targetPackage="${mapperPackage}"
+                             targetProject="${mapperProject}" type="XMLMAPPER" />
+
+        <!-- 如果需要通配所有表 直接用sql的通配符    %即可 -->
+        <table schema="" tableName="${table}" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+    </context>
+
+    <!--以下是将generator.properties和generatorConfig.xml两个文件合并-->
+    <!--<classPathEntry-->
+            <!--location="F:\Maven-3.5.2\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar" />-->
+    <!--<context id="context1">-->
+        <!--&lt;!&ndash; 注释 &ndash;&gt;-->
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true" />&lt;!&ndash; 是否取消注释 &ndash;&gt;-->
+            <!--<property name="suppressDate" value="true" /> &lt;!&ndash; 是否生成注释代时间戳 &ndash;&gt;-->
+        <!--</commentGenerator>-->
+
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://localhost:3306/wj?characterEncoding=utf-8"-->
+                        <!--userId="wj"-->
+                        <!--password="wj" />-->
+        <!--&lt;!&ndash; 类型转换 &ndash;&gt;-->
+        <!--<javaTypeResolver>-->
+            <!--&lt;!&ndash; 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） &ndash;&gt;-->
+            <!--<property name="forceBigDecimals" value="false" />-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="com.ssm.demo.entity"-->
+                            <!--targetProject="src/main/java" />-->
+        <!--<sqlMapGenerator targetPackage="sqlmap" targetProject="src/main/resources" />-->
+        <!--<javaClientGenerator targetPackage="com.ssm.demo.dao"-->
+                             <!--targetProject="src/main/java" type="XMLMAPPER" />-->
+
+        <!--&lt;!&ndash; 如果需要通配所有表 直接用sql的通配符    %即可 &ndash;&gt;-->
+        <!--<table schema="" tableName="emp" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+    <!--</context>-->
+</generatorConfiguration>
