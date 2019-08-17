@@ -34,7 +34,7 @@ public class ViewController {
         String logName=req.getParameter("logname");
         String logWord=req.getParameter("logword");
         System.out.println("logname:"+logName+" logWord:"+logWord);
-        PUser pUser = pUserService.findByUsernameAndPwd(logName,logWord);
+        PUser pUser = pUserService.selectByNameAndPswd(logName,logWord);
         System.out.println("pUser:"+pUser.toString());
         if(pUser!= null){
             msg="success";

@@ -1,29 +1,22 @@
-package com.ssm.demo.service;
+package com.ssm.demo.dao;
 
-import com.ssm.demo.dao.PUserMapper;
 import com.ssm.demo.entity.PUser;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-
-public interface PUserService extends PUserMapper {
-    @Override
+@Repository
+public interface PUserMapper {
     int deleteByPrimaryKey(Integer id);
 
-    @Override
     int insert(PUser record);
 
-    @Override
     int insertSelective(PUser record);
 
-    @Override
     PUser selectByPrimaryKey(Integer id);
 
-    @Override
     int updateByPrimaryKeySelective(PUser record);
 
-    @Override
     int updateByPrimaryKey(PUser record);
 
-    @Override
-    PUser selectByNameAndPswd(String logName, String logPswd);
+    PUser selectByNameAndPswd(@Param("uname")String logName,@Param("upswd")String logPswd);
 }
