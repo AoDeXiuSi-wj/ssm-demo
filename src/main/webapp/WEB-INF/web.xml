@@ -40,6 +40,12 @@
     <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
   </listener>
 
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/static/*</url-pattern>
+  </servlet-mapping>
+
   <!-- spring mvc servlet-->
   <servlet>
     <servlet-name>SpringMVC</servlet-name>
@@ -52,13 +58,14 @@
     <async-supported>true</async-supported>
   </servlet>
   <servlet-mapping>
+    <!--servlet-name定义的名称是springMVC,这样的话会在web-inf下spring会自动扫描一个XML文件名叫springMVC-servlet.xml文件-->
     <servlet-name>SpringMVC</servlet-name>
     <!-- 此处也可以配置成 *.do 形式 -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>/index.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
   <!-- session配置 -->
