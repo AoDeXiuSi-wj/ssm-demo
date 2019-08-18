@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 @Controller
@@ -28,21 +30,18 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping("/find")
-    public String find(HttpServletRequest req){
-        String msg="";
-        System.out.println("你已通过springMVC进入controller方法。。。。");
-        logger.info("你已通过springMVC进入controller方法。。。。");
+    public Map<String, Object> find(HttpServletRequest req){
         String logName=req.getParameter("logName");
         String logWord=req.getParameter("logPswd");
-        System.out.println("logname:"+logName+" logWord:"+logWord);
         PUser pUser = pUserService.selectByNameAndPswd(logName,logWord);
-        System.out.println("pUser:"+pUser.toString());
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("name",pUser.getUname());
         if(pUser!= null){
-            msg="success";
+            map.put("stat","success");
         }else {
-            msg="fail";
+            map.put("stat","fail");
         }
-        return msg;
+        return map;
     }
 
 //    @RequestMapping("/success")

@@ -1,9 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-  String path = request.getContextPath();
-  String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+String path = request.getContextPath();
+String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<!DOCTYPE html>
 <html>
   <head>
     <base href="<%=basePath%>">
@@ -28,8 +27,8 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="${pageContext.request.contextPath }/static/img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
     <div class="page login-page">
@@ -51,17 +50,27 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form method="post" class="form-validate" id="fm" name="fm">
+                  <form class="form-validate">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="logName" required data-msg="Please enter your username" class="input-material">
-                      <label for="login-username" class="label-material">User Name</label>
+                      <input id="register-username" type="text" name="registerUsername" required data-msg="Please enter your username" class="input-material">
+                      <label for="register-username" class="label-material">User Name</label>
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="logPswd" required data-msg="Please enter your password" class="input-material">
-                      <label for="login-password" class="label-material">Password</label>
-                    </div><a id="login" href="javascript:void(0)" onclick="login()" class="btn btn-primary">Login</a>
-                    <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>
+                      <input id="register-email" type="email" name="registerEmail" required data-msg="Please enter a valid email address" class="input-material">
+                      <label for="register-email" class="label-material">Email Address      </label>
+                    </div>
+                    <div class="form-group">
+                      <input id="register-password" type="password" name="registerPassword" required data-msg="Please enter your password" class="input-material">
+                      <label for="register-password" class="label-material">password        </label>
+                    </div>
+                    <div class="form-group terms-conditions">
+                      <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
+                      <label for="register-agree">Agree the terms and policy</label>
+                    </div>
+                    <div class="form-group">
+                      <button id="regidter" type="submit" name="registerSubmit" class="btn btn-primary">Register</button>
+                    </div>
+                  </form><small>Already have an account? </small><a href="login.jsp" class="signup">Login</a>
                 </div>
               </div>
             </div>
@@ -69,7 +78,7 @@
         </div>
       </div>
       <div class="copyrights text-center">
-        <p>Design by <a href="#" class="external">Bootstrapious</a>
+        <p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a>
           <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
         </p>
       </div>
@@ -83,23 +92,5 @@
     <script src="${pageContext.request.contextPath }/static/vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
-
-    <script>
-      function login() {
-          $.ajax({
-              url: "login/find",
-              data: $('#fm').serialize(),
-              dataType: "text",
-              type: "post",
-              success: function(result) {
-                  if (result == "success"){
-                      location.href='/ssm/login/index';
-                  }else{
-                      alert("用户名或者密码错误！");
-                  }
-              }
-          });
-      }
-    </script>
   </body>
 </html>
