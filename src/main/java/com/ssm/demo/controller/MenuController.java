@@ -6,23 +6,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/menu")
 public class MenuController {
-    @RequestMapping("/url")
+    @RequestMapping("/type")
     public String switchMenu(String type){
         String url="";
         System.out.println("type:"+type);
         if(type!=null) {
             if (type.equals("home")) {
-                url = "home";
+                url = "frame/home";
             } else if (type.equals("tables")){
-                url = "tables";
+                url = "frame/tables";
             } else if (type.equals("charts")){
-                url = "charts";
+                url = "frame/charts";
             } else if (type.equals("forms")){
-                url = "forms";
+                url = "frame/forms";
             } else {
-                url = "home";
+                url = "frame/home";
             }
         }
         return "".equals(url)?"home":url;
+    }
+    @RequestMapping("/main")
+    public String mainPart(){
+        return "frame/main";
+    }
+    @RequestMapping("/home")
+    public String homePart(){
+        return "frame/home";
     }
 }

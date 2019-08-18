@@ -110,7 +110,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                   </ul>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item"><a href="login.jsp" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="../login.jsp" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -140,7 +140,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                         <li><a href="#">Page</a></li>
                       </ul>
                     </li>
-                    <li><a href="login.jsp"> <i class="icon-interface-windows"></i>Login page </a></li>
+                    <li><a href="../login.jsp"> <i class="icon-interface-windows"></i>Login page </a></li>
           </ul><span class="heading">Extras</span>
           <ul class="list-unstyled">
             <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>

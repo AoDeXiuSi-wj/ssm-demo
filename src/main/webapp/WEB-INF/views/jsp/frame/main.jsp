@@ -2,6 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+
 %>
 <html>
     <head>
@@ -46,7 +47,7 @@
                         <div class="navbar-holder d-flex align-items-center justify-content-between">
                             <!-- Navbar Header-->
                             <div class="navbar-header">
-                                <!-- Navbar Brand --><a href="../index.jsp" class="navbar-brand d-none d-sm-inline-block">
+                                <!-- Navbar Brand --><a href="../others/index.jsp" class="navbar-brand d-none d-sm-inline-block">
                                 <div class="brand-text d-none d-lg-inline-block"><span>Bootstrap </span><strong>Dashboard</strong></div>
                                 <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
                                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -110,7 +111,7 @@
                                     </ul>
                                 </li>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="../login.jsp" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="/ssm/login/loginOut" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -129,10 +130,10 @@
                     </div>
                     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                     <ul class="list-unstyled">
-                        <li class="active"><a href="/ssm/menu/url?type=index"> <i class="icon-home"></i>Home </a></li>
-                        <li><a href="/ssm/menu/url?type=tables"> <i class="icon-grid"></i>Tables </a></li>
-                        <li><a href="/ssm/menu/url?type=charts"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-                        <li><a href="/ssm/menu/url?type=forms"> <i class="icon-padnote"></i>Forms </a></li>
+                        <li class="active"><a href="javascript:void(0)" onclick="reForword('home')"> <i class="icon-home"></i>Home </a></li>
+                        <li><a href="javascript:void(0)" onclick="reForword('tables')"><i class="icon-grid"></i>Tables </a></li>
+                        <li><a href="javascript:void(0)" onclick="reForword('charts')"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+                        <li><a href="javascript:void(0)" onclick="reForword('forms')"> <i class="icon-padnote"></i>Forms </a></li>
                         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
@@ -150,7 +151,7 @@
                     </ul>
                 </nav>
                 <div class="content-inner">
-                    <iframe id="part" name="part" src="/ssm/frame/home" frameborder="0" width="100%" height="100%"></iframe>
+                    <iframe id="part" name="part" src="/ssm/menu/home" frameborder="0" width="100%" height="100%"></iframe>
                 </div>
             </div>
         </div>
@@ -163,5 +164,10 @@
         <script src="${pageContext.request.contextPath }/static/vendor/jquery-validation/jquery.validate.min.js"></script>
         <!-- Main File-->
         <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
+        <script>
+            function reForword(_type) {
+                part.location="/ssm/menu/type?type="+_type;
+            }
+        </script>
     </body>
 </html>
