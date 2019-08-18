@@ -50,25 +50,25 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form class="form-validate">
+                  <form class="form-validate" name="form" id="form">
                     <div class="form-group">
                       <input id="register-username" type="text" name="registerUsername" required data-msg="Please enter your username" class="input-material">
                       <label for="register-username" class="label-material">User Name</label>
                     </div>
                     <div class="form-group">
                       <input id="register-email" type="email" name="registerEmail" required data-msg="Please enter a valid email address" class="input-material">
-                      <label for="register-email" class="label-material">Email Address      </label>
+                      <label for="register-email" class="label-material">Email Address</label>
                     </div>
                     <div class="form-group">
                       <input id="register-password" type="password" name="registerPassword" required data-msg="Please enter your password" class="input-material">
-                      <label for="register-password" class="label-material">password        </label>
+                      <label for="register-password" class="label-material">password</label>
                     </div>
                     <div class="form-group terms-conditions">
                       <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
                       <label for="register-agree">Agree the terms and policy</label>
                     </div>
                     <div class="form-group">
-                      <button id="regidter" type="submit" name="registerSubmit" class="btn btn-primary">Register</button>
+                      <button id="regidter" type="submit" onclick="register()" name="registerSubmit" class="btn btn-primary">Register</button>
                     </div>
                   </form><small>Already have an account? </small><a href="login.jsp" class="signup">Login</a>
                 </div>
@@ -92,5 +92,22 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <script src="${pageContext.request.contextPath }/static/vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
+    <script>
+        function register() {
+            $.ajax({
+                url: "regis/find",
+                data: $('#form').serialize(),
+                dataType: "json",
+                type: "post",
+                success: function(data) {
+                    if (data.stat== "success"){
+                        location.href='/ssm/login/index?name='+data.name;
+                    }else{
+                        alert("内部错误！");
+                    }
+                }
+            });
+        }
+    </script>
   </body>
 </html>

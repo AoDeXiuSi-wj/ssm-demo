@@ -60,7 +60,7 @@
                       <label for="login-password" class="label-material">Password</label>
                     </div><a id="login" href="javascript:void(0)" onclick="login()" class="btn btn-primary">Login</a>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.jsp" class="signup">Signup</a>
+                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="regis/sign" class="signup">Signup</a>
                 </div>
               </div>
             </div>

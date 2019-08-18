@@ -2,7 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-
+    String name=request.getParameter("name");
 %>
 <html>
     <head>
@@ -124,7 +124,7 @@
                     <div class="sidebar-header d-flex align-items-center">
                         <div class="avatar"><img src="${pageContext.request.contextPath }/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="title">
-                            <h1 class="h4">Mark Stephen</h1>
+                            <h1 class="h4"><%=name%></h1>
                             <p>Web Designer</p>
                         </div>
                     </div>

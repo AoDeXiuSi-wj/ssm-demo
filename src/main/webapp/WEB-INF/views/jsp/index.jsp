@@ -2,6 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String name=request.getParameter("name");
 %>
 <html>
     <head>
@@ -9,6 +10,6 @@
         <title>Title</title>
     </head>
     <body>
-        <jsp:forward page="/menu/main"></jsp:forward>
+        <jsp:forward page="/menu/main?name=<%=name%>"></jsp:forward>
     </body>
 </html>
