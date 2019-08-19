@@ -23,7 +23,7 @@ public class MenuController {
                 url = "frame/home";
             }
         }
-        return "".equals(url)?"home":url;
+        return url;
     }
     @RequestMapping("/main")
     public String mainPart(){

@@ -20,12 +20,12 @@ public class PUserImpl implements PUserService {
 
     @Override
     public int insert(PUser record) {
-        return 0;
+        return pUserMapper.insert(record);
     }
 
     @Override
     public int insertSelective(PUser record) {
-        return 0;
+        return pUserMapper.insert(record);
     }
 
     @Override

@@ -10,6 +10,6 @@
         <title>Title</title>
     </head>
     <body>
-        <jsp:forward page="/menu/main?name=<%=name%>"></jsp:forward>
+        <jsp:forward page="/menu/main"></jsp:forward>
     </body>
 </html>

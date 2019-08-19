@@ -13,9 +13,9 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 @Service
-@RequestMapping("/regis")
+@RequestMapping("/register")
 public class RegisterController {
-    private Logger logger = Logger.getLogger(String.valueOf(LoginController.class));
+    private Logger logger = Logger.getLogger(String.valueOf(RegisterController.class));
     @Autowired
     private PUserService pUserService;
     @RequestMapping("/sign")
@@ -28,9 +28,30 @@ public class RegisterController {
         String registerUsername=req.getParameter("registerUsername");
         String registerEmail=req.getParameter("registerEmail");
         String registerPassword=req.getParameter("registerPassword");
-        PUser pUser = pUserService.selectByNameAndPswd(registerUsername, registerPassword);
+        String registerAgree=req.getParameter("registerAgree");
+        String msg="";
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("name", pUser.getUname());
+        if("".equals(registerUsername)){
+            msg="用户名不能为空！";
+            map.put("stat","Failure");
+        }else if("".equals(registerEmail)){
+            msg="邮箱地址不能为空！";
+            map.put("stat","Failure");
+        }else if("".equals(registerPassword)) {
+            msg="用户密码不能为空！";
+            map.put("stat","Failure");
+        }else if(!"ok".equals(registerAgree)){
+            map.put("stat","HalfSuccess");
+        }else {
+            PUser pUser=new PUser();
+            pUser.setUname(registerUsername);
+            pUser.setUpswd(registerPassword);
+            pUser.setEmail(registerEmail);
+            int isOk=pUserService.insert(pUser);
+            map.put("stat","success");
+            map.put("name", registerUsername);
+        }
+        map.put("msg",msg);
         return map;
     }
 }

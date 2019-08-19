@@ -106,7 +106,6 @@ table {
 }
 
 .content-inner {
-  position: relative;
   width: calc(100% - 250px);
   min-height: calc(100vh - 70px);
   padding-bottom: 60px;

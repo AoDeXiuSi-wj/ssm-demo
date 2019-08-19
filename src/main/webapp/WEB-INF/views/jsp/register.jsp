@@ -64,13 +64,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                       <label for="register-password" class="label-material">password</label>
                     </div>
                     <div class="form-group terms-conditions">
-                      <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
+                      <input id="register-agree" name="registerAgree" type="checkbox" required value="ok" data-msg="Your agreement is required" class="checkbox-template">
                       <label for="register-agree">Agree the terms and policy</label>
                     </div>
                     <div class="form-group">
-                      <button id="regidter" type="submit" onclick="register()" name="registerSubmit" class="btn btn-primary">Register</button>
+                      <button id="register" type="submit" onclick="regis()" name="registerSubmit" class="btn btn-primary">Register</button>
                     </div>
-                  </form><small>Already have an account? </small><a href="login.jsp" class="signup">Login</a>
+                  </form><small>Already have an account? </small><a href="login/loginOut" class="signup">Login</a>
                 </div>
               </div>
             </div>
@@ -93,15 +93,19 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <!-- Main File-->
     <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
     <script>
-        function register() {
+        function regis() {
             $.ajax({
-                url: "regis/find",
+                url: "register/add",
                 data: $('#form').serialize(),
                 dataType: "json",
                 type: "post",
                 success: function(data) {
-                    if (data.stat== "success"){
-                        location.href='/ssm/login/index?name='+data.name;
+                    if (data.stat== "success") {
+                        location.href = 'login/index?name=' + data.name;
+                    }else if(data.stat=="Failure"){
+                        alert(data.msg);
+                    }else if(data.stat=="HalfSuccess"){
+
                     }else{
                         alert("内部错误！");
                     }

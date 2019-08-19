@@ -111,7 +111,7 @@
                                     </ul>
                                 </li>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="/ssm/login/loginOut" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="login/loginOut" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                     </ul>
                 </nav>
                 <div class="content-inner">
-                    <iframe id="part" name="part" src="/ssm/menu/home" frameborder="0" width="100%" height="100%"></iframe>
+                    <iframe id="part" name="part" src="menu/home" frameborder="0" width="100%" height="100%"></iframe>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@
         <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
         <script>
             function reForword(_type) {
-                part.location="/ssm/menu/type?type="+_type;
+                part.location="menu/type?type="+_type;
             }
         </script>
     </body>

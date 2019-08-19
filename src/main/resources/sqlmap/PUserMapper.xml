@@ -5,9 +5,10 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="uname" property="uname" jdbcType="VARCHAR" />
     <result column="upswd" property="upswd" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, uname, upswd
+    id, uname, upswd,email
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -20,12 +21,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ssm.demo.entity.PUser" >
-    insert into p_user (id, uname, upswd
+    insert into p_user (uname, upswd,email
       )
-    values (#{id,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{upswd,jdbcType=VARCHAR}
+    values (#{uname,jdbcType=VARCHAR}, #{upswd,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ssm.demo.entity.PUser" >
+  <insert id="insertSelective" parameterType="com.ssm.demo.entity.PUser">
     insert into p_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -58,6 +59,9 @@
       </if>
       <if test="upswd != null" >
         upswd = #{upswd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        upswd = #{email,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
