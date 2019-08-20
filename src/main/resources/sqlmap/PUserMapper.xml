@@ -1,83 +1,83 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ssm.demo.dao.PUserMapper" >
-  <resultMap id="BaseResultMap" type="com.ssm.demo.entity.PUser" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="uname" property="uname" jdbcType="VARCHAR" />
-    <result column="upswd" property="upswd" jdbcType="VARCHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.demo.dao.PUserMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.demo.entity.PUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uname" jdbcType="VARCHAR" property="uname" />
+    <result column="upswd" jdbcType="VARCHAR" property="upswd" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    id, uname, upswd,email
+  <sql id="Base_Column_List">
+    id, uname, upswd, email
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from p_user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from p_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ssm.demo.entity.PUser" >
-    insert into p_user (uname, upswd,email
-      )
-    values (#{uname,jdbcType=VARCHAR}, #{upswd,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.ssm.demo.entity.PUser">
+    insert into p_user (id, uname, upswd, 
+      email)
+    values (#{id,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{upswd,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ssm.demo.entity.PUser">
     insert into p_user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="uname != null" >
+      <if test="uname != null">
         uname,
       </if>
-      <if test="upswd != null" >
+      <if test="upswd != null">
         upswd,
       </if>
+      <if test="email != null">
+        email,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="uname != null" >
+      <if test="uname != null">
         #{uname,jdbcType=VARCHAR},
       </if>
-      <if test="upswd != null" >
+      <if test="upswd != null">
         #{upswd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.demo.entity.PUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.demo.entity.PUser">
     update p_user
-    <set >
-      <if test="uname != null" >
+    <set>
+      <if test="uname != null">
         uname = #{uname,jdbcType=VARCHAR},
       </if>
-      <if test="upswd != null" >
+      <if test="upswd != null">
         upswd = #{upswd,jdbcType=VARCHAR},
       </if>
-      <if test="email != null" >
-        upswd = #{email,jdbcType=VARCHAR},
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ssm.demo.entity.PUser" >
+  <update id="updateByPrimaryKey" parameterType="com.ssm.demo.entity.PUser">
     update p_user
     set uname = #{uname,jdbcType=VARCHAR},
-      upswd = #{upswd,jdbcType=VARCHAR}
+      upswd = #{upswd,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <select id="selectByNameAndPswd" resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select
-    <include refid="Base_Column_List" />
-    from p_user
-    where uname = #{uname,jdbcType=VARCHAR} AND upswd= #{upswd,jdbcType=VARCHAR}
-  </select>
 
 </mapper>

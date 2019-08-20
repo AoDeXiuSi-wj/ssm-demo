@@ -34,6 +34,7 @@ public class LoginController {
         String logName=req.getParameter("logName");
         String logWord=req.getParameter("logPswd");
         PUser pUser = pUserService.selectByNameAndPswd(logName,logWord);
+        System.out.println(pUser.toString());
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("name",pUser.getUname());
         if(pUser!= null){

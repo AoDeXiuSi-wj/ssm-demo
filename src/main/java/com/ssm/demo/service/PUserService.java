@@ -24,6 +24,5 @@ public interface PUserService extends PUserMapper {
     @Override
     int updateByPrimaryKey(PUser record);
 
-    @Override
     PUser selectByNameAndPswd(String logName, String logPswd);
 }

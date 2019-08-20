@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -29,17 +29,27 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script src="${pageContext.request.contextPath }/static/vendor/jquery/jquery.min.js"></script>
     <script>
       $(function () {
          $.ajax({
-            url:"emp/selectAll",
+            url:"emp/queryAll",
             type: "post",
             dataType:"json",
+            async: false,
             success: function(data) {
-              alert(data.get(0).getUname());
+                alert(JSON.stringify(data));
+            },
+            error:function (xhr,state,errorThrown){
+                 if (xhr.status) {
+                     alert("error,网络错误,发生网络错误，错误码为：" + xhr.status);
+                 } else {
+                     alert("error,网络错误,未知网络错误, 请确保设备处在联网状态");
+                 }
             }
          });
       });
+
     </script>
   </head>
   <body>

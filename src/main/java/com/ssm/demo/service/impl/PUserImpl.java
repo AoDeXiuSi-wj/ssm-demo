@@ -9,8 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service("PUserService")
 public class PUserImpl implements PUserService {
-    @Qualifier("PUserMapper")
-    @Autowired()
+    @Autowired
     private PUserMapper pUserMapper;
 
     @Override
@@ -45,6 +44,8 @@ public class PUserImpl implements PUserService {
 
     @Override
     public PUser selectByNameAndPswd(String logName, String logPswd) {
-        return pUserMapper.selectByNameAndPswd(logName,logPswd);
+        return null;
     }
+
+
 }

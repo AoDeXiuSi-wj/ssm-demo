@@ -36,7 +36,7 @@
 
     <!--以下是将generator.properties和generatorConfig.xml两个文件合并-->
     <classPathEntry
-            location="C:\Users\AoDeXiuSi\.m2\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar" />
+            location="F:\Maven-3.5.2\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar" />
     <context id="context1">
         <!-- 注释 -->
         <commentGenerator>

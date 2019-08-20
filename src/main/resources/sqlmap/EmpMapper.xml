@@ -11,20 +11,20 @@
     <result column="COMM" property="comm" jdbcType="INTEGER" />
     <result column="DEPTNO" property="deptno" jdbcType="INTEGER" />
   </resultMap>
+
   <sql id="Base_Column_List" >
     EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
   </sql>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select
-    <include refid="Base_Column_List" />
-    from emp
-  </select>
-
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from emp
     where EMPNO = #{empno,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from emp
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from emp
