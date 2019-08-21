@@ -1,6 +1,7 @@
 package com.ssm.demo.dao;
 
 import com.ssm.demo.entity.Emp;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface EmpMapper {
 
     int insertSelective(Emp record);
 
-    Emp selectByPrimaryKey(Integer empno);
+    Emp selectByPrimaryKey(@Param("empno") Integer empno);
 
     List<Emp> selectAll();
 

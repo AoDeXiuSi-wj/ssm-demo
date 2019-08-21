@@ -31,8 +31,8 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     </head>
-    <body>
-        <div class="page">
+    <body style="overflow-y: hidden">
+        <div class="page" style="height: 695px;border: 0px solid green;overflow-y: hidden">
             <!-- Main Navbar-->
             <header class="header">
                 <nav class="navbar">
@@ -111,15 +111,15 @@
                                     </ul>
                                 </li>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="login/loginOut" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="/login/goLogin" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
             </header>
-            <div class="page-content d-flex align-items-stretch">
+            <div class="page-content d-flex align-items-stretch" style="border:0px solid red;">
                 <!-- Side Navbar -->
-                <nav class="side-navbar">
+                <nav class="side-navbar" style="height: 620px;">
                     <!-- Sidebar Header-->
                     <div class="sidebar-header d-flex align-items-center">
                         <div class="avatar"><img src="${pageContext.request.contextPath }/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
@@ -130,10 +130,10 @@
                     </div>
                     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                     <ul class="list-unstyled">
-                        <li class="active"><a href="javascript:void(0)" onclick="reForword('home')"> <i class="icon-home"></i>Home </a></li>
-                        <li><a href="javascript:void(0)" onclick="reForword('tables')"><i class="icon-grid"></i>Tables </a></li>
-                        <li><a href="javascript:void(0)" onclick="reForword('charts')"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-                        <li><a href="javascript:void(0)" onclick="reForword('forms')"> <i class="icon-padnote"></i>Forms </a></li>
+                        <li class="active" id="22"><a href="#" onclick="reForword(this)" name="home"> <i class="icon-home"></i>Home </a></li>
+                        <li><a href="javascript:void(0)" onclick="reForword(this)" name="tables"><i class="icon-grid"></i>Tables </a></li>
+                        <li><a href="javascript:void(0)" onclick="reForword(this)" name="charts"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+                        <li><a href="javascript:void(0)" onclick="reForword(this)" name="forms"> <i class="icon-padnote"></i>Forms </a></li>
                         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
@@ -141,7 +141,6 @@
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>
-                        <li><a href="../login.jsp"> <i class="icon-interface-windows"></i>Login page </a></li>
                     </ul><span class="heading">Extras</span>
                     <ul class="list-unstyled">
                         <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
@@ -155,6 +154,20 @@
                 </div>
             </div>
         </div>
+        <!-- Page Footer-->
+        <footer class="main-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>Your company &copy; 2017-2019</p>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <p>Design by Bootstrapious.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                    </div>
+                </div>
+            </div>
+        </footer>
         <!-- JavaScript files-->
         <script src="${pageContext.request.contextPath }/static/vendor/jquery/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath }/static/vendor/popper.js/umd/popper.min.js"> </script>
@@ -165,7 +178,10 @@
         <!-- Main File-->
         <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
         <script>
-            function reForword(_type) {
+            function reForword(_obj) {
+                $(".list-unstyled").find("li[class*='active']").removeClass("active");
+                $(_obj).parent("li").addClass("active");
+                var _type=$(_obj).attr("name");
                 part.location="menu/type?type="+_type;
             }
         </script>

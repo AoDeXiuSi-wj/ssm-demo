@@ -1,8 +1,7 @@
 package com.ssm.demo.controller;
 
+import com.ssm.demo.dao.EmpMapper;
 import com.ssm.demo.entity.Emp;
-import com.ssm.demo.service.EmpService;
-import com.ssm.demo.service.impl.EmpImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,27 +16,19 @@ import java.util.logging.Logger;
 public class EmpController {
     private Logger logger = Logger.getLogger(String.valueOf(EmpController.class));
     @Autowired
-    private EmpService empService;
-    @Autowired
-    private EmpImpl empImpl;
+    private EmpMapper empMapper;
 
     @RequestMapping("/queryAll")
     @ResponseBody
-    public Emp empTable(){
+    public List<Emp> empTable(){
         System.out.println("wocao2222222222222 ");
-        System.out.println("88888888:"+empService);
+        System.out.println("88888888:"+empMapper);
         List<Emp> list=new LinkedList<Emp>();
-        /*list=empService.selectAll();
+        list=empMapper.selectAll();
         for (Emp e:list
              ) {
             System.out.println(e.toString());
         }
-        return list;*/
-        Emp ee=new Emp();
-        ee = empService.selectByPrimaryKey(1);
-       // System.out.println("111111111111111"+ee.toString());
-        list.add(ee);
-      //  System.out.println("989899989333"+emp.getHiredate());
-        return ee;
+        return list;
     }
 }

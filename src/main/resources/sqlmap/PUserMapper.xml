@@ -80,4 +80,10 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
+  <select id="selectByNameAndPswd" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from p_user
+    where uname = #{uname,jdbcType=INTEGER} AND upswd=#{upswd,jdbcType=INTEGER}
+  </select>
 </mapper>

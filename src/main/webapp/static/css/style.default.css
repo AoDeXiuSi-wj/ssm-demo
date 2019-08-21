@@ -107,8 +107,8 @@ table {
 
 .content-inner {
   width: calc(100% - 250px);
-  min-height: calc(100vh - 70px);
-  padding-bottom: 60px;
+  min-height: calc(100vh - 170px);
+  padding-bottom: 0px;
 }
 
 .content-inner.active {
@@ -313,6 +313,7 @@ input {
 
 .page {
   background: #EEF5F9;
+  overflow-y: visible;
 }
 
 .page .text-white {
@@ -1530,8 +1531,8 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
 * ==========================================================
 */
 footer.main-footer {
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  bottom: 0px;
   width: 100%;
   background: #2f333e;
   color: #fff;

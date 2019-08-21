@@ -208,20 +208,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
               </div>
             </div>
           </section>
-          <!-- Page Footer-->
-          <footer class="main-footer">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-sm-6">
-                  <p>Your company &copy; 2017-2019</p>
-                </div>
-                <div class="col-sm-6 text-right">
-                  <p>Design by Bootstrapious.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-                  <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                </div>
-              </div>
-            </div>
-          </footer>
         </div>
     <!-- JavaScript files-->
     <script src="${pageContext.request.contextPath }/static/vendor/jquery/jquery.min.js"></script>

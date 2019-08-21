@@ -38,7 +38,25 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             dataType:"json",
             async: false,
             success: function(data) {
-                alert(JSON.stringify(data));
+                //alert(JSON.stringify(data));
+                if(data!=null&data!=undefined&data!=""){
+                    var tab="";
+                    $.each(data, function(i, content){
+                        if (i > data.length) return false;
+                        tab+="<tr>";
+                        tab+="<th th scope='row'>"+(i+1)+"</th>";
+                        tab+="<td>"+content.empno+"</td>";
+                        tab+="<td>"+content.ename+"</td>";
+                        tab+="<td>"+content.job+"</td>";
+                        tab+="<td>"+content.mgr+"</td>";
+                        tab+="<td>"+content.hiredate+"</td>";
+                        tab+="<td>"+content.sal+"</td>";
+                        tab+="<td>"+content.comm+"</td>";
+                        tab+="<td>"+content.deptno+"</td>";
+                        tab+="</tr>";
+                    });
+                    $(".table tbody").html(tab);
+                }
             },
             error:function (xhr,state,errorThrown){
                  if (xhr.status) {
@@ -63,11 +81,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <!-- Breadcrumb-->
       <div class="breadcrumb-holder container-fluid">
         <ul class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
-          <li class="breadcrumb-item active">Tables</li>
+          <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+          <li class="breadcrumb-item active">Tables            </li>
         </ul>
       </div>
-      <section class="tables">
+      <div class="tables">
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
@@ -105,6 +123,12 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                           <td>Thornton</td>
                           <td>@fat</td>
                         </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -113,21 +137,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             </div>
           </div>
         </div>
-      </section>
-      <!-- Page Footer-->
-      <footer class="main-footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6">
-              <p>Your company &copy; 2017-2019</p>
-            </div>
-            <div class="col-sm-6 text-right">
-              <p>Design by Bootstrapious.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-              <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-            </div>
-          </div>
-        </div>
-      </footer>
+      </div>
     </div>
   </body>
 </html>

@@ -1,8 +1,9 @@
 package com.ssm.demo.controller;
 
+import com.ssm.demo.dao.PUserMapper;
 import com.ssm.demo.entity.PUser;
-import com.ssm.demo.service.PUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,8 +17,9 @@ import java.util.logging.Logger;
 @RequestMapping("/register")
 public class RegisterController {
     private Logger logger = Logger.getLogger(String.valueOf(RegisterController.class));
+    @Qualifier("PUserMapper")
     @Autowired
-    private PUserService pUserService;
+    private PUserMapper pUserMapper;
     @RequestMapping("/sign")
     public String register(){
         return "register";
@@ -47,7 +49,7 @@ public class RegisterController {
             pUser.setUname(registerUsername);
             pUser.setUpswd(registerPassword);
             pUser.setEmail(registerEmail);
-            int isOk=pUserService.insert(pUser);
+            int isOk=pUserMapper.insert(pUser);
             map.put("stat","success");
             map.put("name", registerUsername);
         }
