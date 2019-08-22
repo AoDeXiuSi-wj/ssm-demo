@@ -40,4 +40,14 @@ public class PUser {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "PUser{" +
+                "id=" + id +
+                ", uname='" + uname + '\'' +
+                ", upswd='" + upswd + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

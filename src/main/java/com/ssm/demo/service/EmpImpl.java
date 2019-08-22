@@ -2,6 +2,8 @@ package com.ssm.demo.service;
 
 import com.ssm.demo.dao.EmpMapper;
 import com.ssm.demo.entity.Emp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -9,8 +11,9 @@ import java.util.List;
 
 @Service
 public class EmpImpl implements EmpMapper {
-    @Resource
+    @Autowired
     private EmpMapper empMapper;
+
     public int deleteByPrimaryKey(Integer empno) {
         return 0;
     }

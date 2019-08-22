@@ -1,15 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String name=request.getParameter("name");
 %>
 <html>
     <head>
         <base href="<%=basePath%>">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bootstrap Material Admin by Bootstrapious.com</title>
+        <title>Bootstrap Material Admin by Bootstrapious.com ${map.msg}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="robots" content="all,follow">
@@ -124,7 +124,7 @@
                     <div class="sidebar-header d-flex align-items-center">
                         <div class="avatar"><img src="${pageContext.request.contextPath }/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="title">
-                            <h1 class="h4"><%=name%></h1>
+                            <h1 class="h4">${map.get("msg")}</h1>
                             <p>Web Designer</p>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                     </ul>
                 </nav>
                 <div class="content-inner">
-                    <iframe id="part" name="part" src="menu/home" frameborder="0" width="100%" height="100%"></iframe>
+                    <iframe id="part" name="part" src="data/menu?type=home" frameborder="0" width="100%" height="100%"></iframe>
                 </div>
             </div>
         </div>
@@ -169,7 +169,7 @@
             </div>
         </footer>
         <!-- JavaScript files-->
-        <script src="${pageContext.request.contextPath }/static/vendor/jquery/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/vendor/jquery/jquery.js"></script>
         <script src="${pageContext.request.contextPath }/static/vendor/popper.js/umd/popper.min.js"> </script>
         <script src="${pageContext.request.contextPath }/static/vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath }/static/vendor/jquery.cookie/jquery.cookie.js"> </script>
@@ -178,11 +178,24 @@
         <!-- Main File-->
         <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
         <script>
+                $.ajax({
+                    url:"info",
+                    dataType:"text",
+                    type:"post",
+                    error:function (xhr,state,errorThrown){
+                        var status = xhr.status;
+                        if (status) {
+                            alert("error,网络错误,发生网络错误，错误码为：" + xhr.status);
+                        } else {
+                            alert("error,网络错误,未知网络错误, 请确保设备处在联网状态");
+                        }
+                    }
+                });
             function reForword(_obj) {
                 $(".list-unstyled").find("li[class*='active']").removeClass("active");
                 $(_obj).parent("li").addClass("active");
                 var _type=$(_obj).attr("name");
-                part.location="menu/type?type="+_type;
+                part.location="data/menu?type="+_type;
             }
         </script>
     </body>

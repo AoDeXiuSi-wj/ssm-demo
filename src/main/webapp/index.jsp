@@ -9,6 +9,6 @@
         <title>欢迎页</title>
     </head>
     <body>
-        <jsp:forward page="/login/index"/>
+        <jsp:forward page="/index"/>
     </body>
 </html>

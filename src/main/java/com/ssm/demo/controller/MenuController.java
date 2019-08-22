@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/menu")
+@RequestMapping("/data")
 public class MenuController {
-    @RequestMapping("/type")
+    @RequestMapping("/menu")
     public String switchMenu(String type){
         String url="";
         System.out.println("type:"+type);
@@ -24,13 +24,5 @@ public class MenuController {
             }
         }
         return url;
-    }
-    @RequestMapping("/main")
-    public String mainPart(){
-        return "frame/main";
-    }
-    @RequestMapping("/home")
-    public String homePart(){
-        return "frame/home";
     }
 }

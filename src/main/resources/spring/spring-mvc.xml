@@ -22,6 +22,8 @@
 
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
+    <bean id="empImpl" class="com.ssm.demo.service.EmpImpl"/>
+    <bean id="pUserImpl" class="com.ssm.demo.service.PUserImpl"/>
     <!-- 视图模式配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/jsp/"/>
@@ -43,7 +45,6 @@
     </mvc:annotation-driven>
 
     <mvc:default-servlet-handler/>
-
     <!--静态资源处理,
     静态资源映射，对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理,
     传统Web容器的静态资源只能放在Web容器的根路径下，<mvc:resources />完全打破了这个限制-->
@@ -67,6 +68,24 @@
         </property>
     </bean>
 
+    <!-- log4j start -->
+    <!-- 使用xml配置aop ,引入AOP的命名空间 强制使用cglib代理，如果不设置，将默认使用jdk的代理，但是jdk的代理是基于接口的 -->
+    <aop:config proxy-target-class="true" />
+    <aop:config>
+        <!--定义切面-->
+        <aop:aspect id="logAspect" ref="logInterceptor">
+            <!--定义切入点-->
+            <aop:pointcut expression="execution(* com.ssm.demo.controller.*.*(..))"  id="logPointCut"/>
+            <!--方法执行之前被调用执行的-->
+            <!--<aop:before method="before" pointcut-ref="logPointCut"/>&lt;!&ndash;一个切入点的引用&ndash;&gt;-->
+            <!--<aop:after method="after" pointcut-ref="logPointCut"/>&lt;!&ndash;一个切入点的引用&ndash;&gt;-->
+            <!--<aop:after-throwing method="afterThrowing" pointcut-ref="logPointCut" />-->
+            <!--<aop:after-returning method="afterReturn" pointcut-ref="logPointCut" />-->
+            <aop:around method="around" pointcut-ref="logPointCut"/>
+        </aop:aspect>
+    </aop:config>
+    <!-- log4j end -->
+
     <!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
     <!--<bean id="multipartResolver"-->
     <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
@@ -81,18 +100,20 @@
     <!--</bean>-->
 
     <!-- 配置拦截器 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller   -->
-            <mvc:mapping path="/**" />
-            <!-- 不拦截的连接 -->
-            <mvc:exclude-mapping path="/login/**"/>
-            <mvc:exclude-mapping path="/register/**"/>
-            <mvc:exclude-mapping path="/static/**"/>
-            <bean class="com.ssm.demo.controller.InterceptorController"></bean>
-        </mvc:interceptor>
-        <!--   当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法   -->
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--&lt;!&ndash; 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller   &ndash;&gt;-->
+            <!--<mvc:mapping path="/data/**" />-->
+            <!--&lt;!&ndash; 不拦截的连接 &ndash;&gt;-->
+            <!--<mvc:exclude-mapping path="/login/**"/>-->
+            <!--<mvc:exclude-mapping path="/register/**"/>-->
+            <!--<mvc:exclude-mapping path="index.jsp"/>-->
+            <!--<mvc:exclude-mapping path="/index.jsp"/>-->
+            <!--<mvc:exclude-mapping path="/static/**"/>-->
+            <!--<bean class="com.ssm.demo.controller"></bean>-->
+        <!--</mvc:interceptor>-->
+        <!--&lt;!&ndash;   当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法   &ndash;&gt;-->
+    <!--</mvc:interceptors>-->
 
 
 </beans>
