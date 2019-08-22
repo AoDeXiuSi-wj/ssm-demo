@@ -111,7 +111,7 @@
                                     </ul>
                                 </li>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="/login/goLogin" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="login/out" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -178,19 +178,19 @@
         <!-- Main File-->
         <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
         <script>
-                $.ajax({
-                    url:"info",
-                    dataType:"text",
-                    type:"post",
-                    error:function (xhr,state,errorThrown){
-                        var status = xhr.status;
-                        if (status) {
-                            alert("error,网络错误,发生网络错误，错误码为：" + xhr.status);
-                        } else {
-                            alert("error,网络错误,未知网络错误, 请确保设备处在联网状态");
-                        }
+            $.ajax({
+                url:"info",
+                dataType:"text",
+                type:"post",
+                error:function (xhr,state,errorThrown){
+                    var status = xhr.status;
+                    if (status) {
+                        alert("error,网络错误,发生网络错误，错误码为：" + xhr.status);
+                    } else {
+                        alert("error,网络错误,未知网络错误, 请确保设备处在联网状态");
                     }
-                });
+                }
+            });
             function reForword(_obj) {
                 $(".list-unstyled").find("li[class*='active']").removeClass("active");
                 $(_obj).parent("li").addClass("active");

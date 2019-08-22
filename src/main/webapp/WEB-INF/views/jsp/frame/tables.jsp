@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -33,7 +34,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <script>
       $(function () {
          $.ajax({
-            url:"emp/queryAll",
+            url:"data/emp/queryAll",
             type: "post",
             dataType:"json",
             async: false,
@@ -49,7 +50,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                         tab+="<td>"+content.ename+"</td>";
                         tab+="<td>"+content.job+"</td>";
                         tab+="<td>"+content.mgr+"</td>";
-                        tab+="<td>"+content.hiredate+"</td>";
+                        tab+="<td><fmt\\:formatDate value='" +content.hiredate+ "' pattern='yyyy-MM-dd' type='both'/></td>";
                         tab+="<td>"+content.sal+"</td>";
                         tab+="<td>"+content.comm+"</td>";
                         tab+="<td>"+content.deptno+"</td>";
@@ -105,9 +106,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
+                          <th>员工编号</th>
+                          <th>员工名称</th>
+                          <th>职业</th>
+                          <th>主管</th>
+                          <th>入职日期</th>
+                          <th>销售额</th>
+                          <th>奖金</th>
+                          <th>部门编号</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -116,18 +122,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                           <td>Mark</td>
                           <td>Otto</td>
                           <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>Mark</td>
+                          <td>Otto</td>
                         </tr>
                       </tbody>
                     </table>

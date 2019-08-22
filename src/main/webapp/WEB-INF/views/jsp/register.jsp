@@ -63,6 +63,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                       <input id="register-password" type="password" name="registerPassword" required data-msg="Please enter your password" class="input-material">
                       <label for="register-password" class="label-material">password</label>
                     </div>
+
+                    <div class="form-group">
+                      <label for="register-password" class="label-material">出生日期</label>
+                    </div>
+
                     <div class="form-group terms-conditions">
                       <input id="register-agree" name="registerAgree" type="checkbox" required value="ok" data-msg="Your agreement is required" class="checkbox-template">
                       <label for="register-agree">Agree the terms and policy</label>

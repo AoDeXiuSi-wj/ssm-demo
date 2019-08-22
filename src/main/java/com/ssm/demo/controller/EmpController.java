@@ -21,13 +21,11 @@ public class EmpController {
     @RequestMapping("/queryAll")
     @ResponseBody
     public List<Emp> empTable(){
-        System.out.println("wocao2222222222222 ");
-        System.out.println("88888888:"+empMapper);
         List<Emp> list=new LinkedList<Emp>();
         list=empMapper.selectAll();
         for (Emp e:list
              ) {
-            System.out.println(e.toString());
+            System.out.println("\033[32;4m" + "\n" + "日期："+ e.toString() + "\n" + "\033[0m");
         }
         return list;
     }

@@ -58,7 +58,7 @@
                     <div class="form-group">
                       <input id="login-password" type="password" name="logPswd" required data-msg="Please enter your password" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
-                    </div><a id="login" href="javascript:void(0)" onclick="login()" class="btn btn-primary">Login</a>
+                    </div><a id="login" href="#" onclick="login()" class="btn btn-primary">Login</a>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                   </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register/sign" class="signup">Signup</a>
                 </div>
@@ -86,13 +86,13 @@
     <script>
       function login() {
           $.ajax({
-              url: "login/find",
+              url: "login/in",
               data: $('#fm').serialize(),
               dataType: "json",
               type: "post",
-              success: function(data) {
+              success: function(data) {alert(66666);
                   if (data.stat== "success"){
-                      location.href='/ssm/login/index?name='+data.name;
+                      location.href='index?name='+data.name;
                   }else{
                       alert("用户名或者密码错误！");
                   }

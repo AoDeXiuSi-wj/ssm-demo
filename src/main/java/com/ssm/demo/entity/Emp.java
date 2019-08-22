@@ -1,5 +1,8 @@
 package com.ssm.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Emp {
@@ -11,6 +14,7 @@ public class Emp {
 
     private Integer mgr;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date hiredate;
 
     private Integer sal;
@@ -47,10 +51,12 @@ public class Emp {
         return mgr;
     }
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public void setMgr(Integer mgr) {
         this.mgr = mgr;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getHiredate() {
         return hiredate;
     }
@@ -81,5 +87,19 @@ public class Emp {
 
     public void setDeptno(Integer deptno) {
         this.deptno = deptno;
+    }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "empno=" + empno +
+                ", ename='" + ename + '\'' +
+                ", job='" + job + '\'' +
+                ", mgr=" + mgr +
+                ", hiredate=" + hiredate +
+                ", sal=" + sal +
+                ", comm=" + comm +
+                ", deptno=" + deptno +
+                '}';
     }
 }
