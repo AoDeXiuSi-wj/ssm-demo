@@ -58,9 +58,13 @@
                     <div class="form-group">
                       <input id="login-password" type="password" name="logPswd" required data-msg="Please enter your password" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
-                    </div><a id="login" href="#" onclick="login()" class="btn btn-primary">Login</a>
+                    </div>
+                    <div>
+                      <a class="btn btn-success" href="#" onclick="login()">Login</a>
+                      <a class="btn btn-primary" href="javascript:void(0)" onclick="reset() ">Reset</a>
+                    </div>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register/sign" class="signup">Signup</a>
+                  </form><a href="javascript:void(0)" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register/sign" class="signup">Signup</a>
                 </div>
               </div>
             </div>
@@ -84,20 +88,25 @@
     <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
 
     <script>
+      //清除输入的内容
+      function reset() {
+        $("#login-username").val("");
+        $("#login-password").val("");
+      }
       function login() {
-          $.ajax({
-              url: "login/in",
-              data: $('#fm').serialize(),
-              dataType: "json",
-              type: "post",
-              success: function(data) {alert(66666);
-                  if (data.stat== "success"){
-                      location.href='index?name='+data.name;
-                  }else{
-                      alert("用户名或者密码错误！");
-                  }
-              }
-          });
+        $.ajax({
+          url: "login/in",
+          data: $('#fm').serialize(),
+          dataType: "json",
+          type: "post",
+          success: function(data) {
+            if (data.stat== "success"){alert(data.stat);
+                location.href='index';
+            }else{
+                alert("用户名或者密码错误！");
+            }
+          }
+        });
       }
     </script>
   </body>

@@ -75,7 +75,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <div class="form-group">
                       <button id="register" type="submit" onclick="regis()" name="registerSubmit" class="btn btn-primary">Register</button>
                     </div>
-                  </form><small>Already have an account? </small><a href="login/loginOut" class="signup">Login</a>
+                  </form><small>Already have an account? </small><a href="login/page" class="signup">Login</a>
                 </div>
               </div>
             </div>

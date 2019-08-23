@@ -1,15 +1,18 @@
+<%@ page import="com.ssm.demo.entity.PUser" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    PUser pUser= (PUser) request.getSession().getAttribute("user_info");
 %>
 <html>
+    ${pUser.getUname()}
     <head>
         <base href="<%=basePath%>">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bootstrap Material Admin by Bootstrapious.com ${map.msg}</title>
+        <title>Bootstrap Material Admin by Bootstrapious.com</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="robots" content="all,follow">
@@ -124,7 +127,7 @@
                     <div class="sidebar-header d-flex align-items-center">
                         <div class="avatar"><img src="${pageContext.request.contextPath }/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="title">
-                            <h1 class="h4">${map.get("msg")}</h1>
+                            <h1 class="h4">${sessionScope.user_info.uname}</h1>
                             <p>Web Designer</p>
                         </div>
                     </div>
@@ -178,7 +181,7 @@
         <!-- Main File-->
         <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
         <script>
-            $.ajax({
+           /* $.ajax({
                 url:"info",
                 dataType:"text",
                 type:"post",
@@ -190,7 +193,7 @@
                         alert("error,网络错误,未知网络错误, 请确保设备处在联网状态");
                     }
                 }
-            });
+            });*/
             function reForword(_obj) {
                 $(".list-unstyled").find("li[class*='active']").removeClass("active");
                 $(_obj).parent("li").addClass("active");
