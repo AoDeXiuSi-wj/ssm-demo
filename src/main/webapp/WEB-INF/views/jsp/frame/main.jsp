@@ -16,23 +16,34 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="robots" content="all,follow">
+        <%--框架静态资源 start--%>
         <!-- Bootstrap CSS-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome CSS-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/font-awesome/css/font-awesome.min.css">
         <!-- Fontastic Custom icon font-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/fontastic.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/fontastic.css">
         <!-- Google fonts - Poppins -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
         <!-- theme stylesheet-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/style.default.css" id="theme-stylesheet">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/style.default.css" id="theme-stylesheet">
         <!-- Custom stylesheet - for your changes-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/custom.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/custom.css">
         <!-- Favicon-->
-        <link rel="shortcut icon" href="${pageContext.request.contextPath }/static/img/favicon.ico">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath }/static/frame/img/favicon.ico">
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <script src="${pageContext.request.contextPath }/static/frame/vendor/jquery/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/frame/vendor/popper.js/umd/popper.min.js"> </script>
+        <script src="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/frame/vendor/jquery.cookie/jquery.cookie.js"> </script>
+        <script src="${pageContext.request.contextPath }/static/frame/vendor/chart.js/Chart.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/frame/vendor/jquery-validation/jquery.validate.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/frame/js/charts-custom.js"></script>
+        <!-- Main File-->
+        <script src="${pageContext.request.contextPath }/static/frame/js/front.js"></script>
+        <%--框架静态资源 end--%>
     </head>
     <body style="overflow-y: hidden">
         <div class="page" style="height: 695px;border: 0px solid green;overflow-y: hidden">
@@ -89,17 +100,17 @@
                                 <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange badge-corner">10</span></a>
                                     <ul aria-labelledby="notifications" class="dropdown-menu">
                                         <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="${pageContext.request.contextPath }/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                                            <div class="msg-profile"> <img src="${pageContext.request.contextPath }/static/frame/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
                                             </div></a></li>
                                         <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="${pageContext.request.contextPath }/static/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                                            <div class="msg-profile"> <img src="${pageContext.request.contextPath }/static/frame/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
                                             </div></a></li>
                                         <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                            <div class="msg-profile"> <img src="${pageContext.request.contextPath }/static/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                                            <div class="msg-profile"> <img src="${pageContext.request.contextPath }/static/frame/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
                                             </div></a></li>
@@ -107,10 +118,10 @@
                                     </ul>
                                 </li>
                                 <!-- Languages dropdown    -->
-                                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="${pageContext.request.contextPath }/static/img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
+                                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="${pageContext.request.contextPath }/static/frame/img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
                                     <ul aria-labelledby="languages" class="dropdown-menu">
-                                        <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="${pageContext.request.contextPath }/static/img/flags/16/DE.png" alt="English" class="mr-2">German</a></li>
-                                        <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="${pageContext.request.contextPath }/static/img/flags/16/FR.png" alt="English" class="mr-2">French                                         </a></li>
+                                        <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="${pageContext.request.contextPath }/static/frame/img/flags/16/DE.png" alt="English" class="mr-2">German</a></li>
+                                        <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="${pageContext.request.contextPath }/static/frame/img/flags/16/FR.png" alt="English" class="mr-2">French                                         </a></li>
                                     </ul>
                                 </li>
                                 <!-- Logout    -->
@@ -125,7 +136,7 @@
                 <nav class="side-navbar" style="height: 620px;">
                     <!-- Sidebar Header-->
                     <div class="sidebar-header d-flex align-items-center">
-                        <div class="avatar"><img src="${pageContext.request.contextPath }/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="avatar"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="title">
                             <h1 class="h4">${sessionScope.user_info.uname}</h1>
                             <p>Web Designer</p>
@@ -137,10 +148,10 @@
                         <li><a href="javascript:void(0)" onclick="reForword(this)" name="tables"><i class="icon-grid"></i>Tables </a></li>
                         <li><a href="javascript:void(0)" onclick="reForword(this)" name="charts"> <i class="fa fa-bar-chart"></i>Charts </a></li>
                         <li><a href="javascript:void(0)" onclick="reForword(this)" name="forms"> <i class="icon-padnote"></i>Forms </a></li>
-                        <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
+                        <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>File Management</a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
+                                <li><a href="javascript:void(0)" onclick="reForword(this)" name="upload"><i>Upload File</i></a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>
@@ -171,15 +182,6 @@
                 </div>
             </div>
         </footer>
-        <!-- JavaScript files-->
-        <script src="${pageContext.request.contextPath }/static/vendor/jquery/jquery.js"></script>
-        <script src="${pageContext.request.contextPath }/static/vendor/popper.js/umd/popper.min.js"> </script>
-        <script src="${pageContext.request.contextPath }/static/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath }/static/vendor/jquery.cookie/jquery.cookie.js"> </script>
-        <script src="${pageContext.request.contextPath }/static/vendor/chart.js/Chart.min.js"></script>
-        <script src="${pageContext.request.contextPath }/static/vendor/jquery-validation/jquery.validate.min.js"></script>
-        <!-- Main File-->
-        <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
         <script>
            /* $.ajax({
                 url:"info",

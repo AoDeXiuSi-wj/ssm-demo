@@ -2,7 +2,7 @@ package com.ssm.demo.controller;
 
 import com.ssm.demo.dao.PUserMapper;
 import com.ssm.demo.entity.PUser;
-import com.ssm.demo.util.InterceptorBasePUserInfo;
+import com.ssm.demo.util.InterceptorSetSessionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController extends InterceptorBasePUserInfo{
+public class LoginController extends InterceptorSetSessionInfo {
     private Logger logger = Logger.getLogger(String.valueOf(LoginController.class));
     @Qualifier("PUserMapper")
     @Autowired

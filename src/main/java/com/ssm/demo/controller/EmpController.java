@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping("/data/emp")
+@RequestMapping("/table")
 public class EmpController {
     private Logger logger = Logger.getLogger(String.valueOf(EmpController.class));
     @Autowired
     private EmpMapper empMapper;
 
-    @RequestMapping("/queryAll")
+    @RequestMapping("/all")
     @ResponseBody
     public List<Emp> empTable(){
         List<Emp> list=new LinkedList<Emp>();

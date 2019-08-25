@@ -19,6 +19,8 @@ public class MenuController {
                 url = "frame/charts";
             } else if (type.equals("forms")){
                 url = "frame/forms";
+            } else if (type.equals("upload")){
+                url = "frame/upload";
             } else {
                 url = "frame/home";
             }

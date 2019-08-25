@@ -12,23 +12,34 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
+    <%--框架静态资源 start--%>
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/font-awesome/css/font-awesome.min.css">
     <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/fontastic.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/fontastic.css">
     <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath }/static/frame/img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script src="${pageContext.request.contextPath }/static/frame/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath }/static/frame/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath }/static/frame/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="${pageContext.request.contextPath }/static/frame/vendor/chart.js/Chart.min.js"></script>
+    <script src="${pageContext.request.contextPath }/static/frame/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath }/static/frame/js/charts-custom.js"></script>
+    <!-- Main File-->
+    <script src="${pageContext.request.contextPath }/static/frame/js/front.js"></script>
+    <%--框架静态资源 end--%>
   </head>
   <body>
     <div class="content-inner">
@@ -520,14 +531,5 @@
             </div>
           </section>
         </div>
-    <!-- JavaScript files-->
-    <script src="${pageContext.request.contextPath }/static/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath }/static/vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="${pageContext.request.contextPath }/static/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath }/static/vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="${pageContext.request.contextPath }/static/vendor/chart.js/Chart.min.js"></script>
-    <script src="${pageContext.request.contextPath }/static/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <!-- Main File-->
-    <script src="${pageContext.request.contextPath }/static/js/front.js"></script>
   </body>
 </html>

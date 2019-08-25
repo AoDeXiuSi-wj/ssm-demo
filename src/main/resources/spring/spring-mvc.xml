@@ -73,7 +73,7 @@
     <aop:config proxy-target-class="true" />
     <aop:config>
         <!--定义切面-->
-        <aop:aspect id="logAspect" ref="logInterceptor">
+        <aop:aspect id="logAspect" ref="logsInterceptor">
             <!--定义切入点-->
             <aop:pointcut expression="execution(* com.ssm.demo.controller.*.*(..))"  id="logPointCut"/>
             <!--方法执行之前被调用执行的-->
@@ -103,14 +103,13 @@
     <!--<mvc:interceptors>-->
         <!--<mvc:interceptor>-->
             <!--&lt;!&ndash; 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller   &ndash;&gt;-->
-            <!--<mvc:mapping path="/data/**" />-->
+            <!--<mvc:mapping path="/**" />-->
             <!--&lt;!&ndash; 不拦截的连接 &ndash;&gt;-->
             <!--<mvc:exclude-mapping path="/login/**"/>-->
             <!--<mvc:exclude-mapping path="/register/**"/>-->
-            <!--<mvc:exclude-mapping path="index.jsp"/>-->
-            <!--<mvc:exclude-mapping path="/index.jsp"/>-->
+            <!--&lt;!&ndash;<mvc:exclude-mapping path="/index"/>&ndash;&gt;-->
             <!--<mvc:exclude-mapping path="/static/**"/>-->
-            <!--<bean class="com.ssm.demo.controller"></bean>-->
+            <!--<bean class="com.ssm.demo.controller.InterceptorLoginController"></bean>-->
         <!--</mvc:interceptor>-->
         <!--&lt;!&ndash;   当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法   &ndash;&gt;-->
     <!--</mvc:interceptors>-->
