@@ -153,7 +153,7 @@
             <div class="row bg-white has-shadow">
               <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                 <div class="project-title d-flex align-items-center">
-                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/img/project-1.jpg" alt="..." class="img-fluid"></div>
+                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/frame/img/project-1.jpg" alt="..." class="img-fluid"></div>
                   <div class="text">
                     <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                   </div>
@@ -176,7 +176,7 @@
             <div class="row bg-white has-shadow">
               <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                 <div class="project-title d-flex align-items-center">
-                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/img/project-2.jpg" alt="..." class="img-fluid"></div>
+                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/frame/img/project-2.jpg" alt="..." class="img-fluid"></div>
                   <div class="text">
                     <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                   </div>
@@ -199,7 +199,7 @@
             <div class="row bg-white has-shadow">
               <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                 <div class="project-title d-flex align-items-center">
-                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/img/project-3.jpg" alt="..." class="img-fluid"></div>
+                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/frame/img/project-3.jpg" alt="..." class="img-fluid"></div>
                   <div class="text">
                     <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                   </div>
@@ -222,7 +222,7 @@
             <div class="row bg-white has-shadow">
               <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                 <div class="project-title d-flex align-items-center">
-                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/img/project-4.jpg" alt="..." class="img-fluid"></div>
+                  <div class="image has-shadow"><img src="${pageContext.request.contextPath }/static/frame/img/project-4.jpg" alt="..." class="img-fluid"></div>
                   <div class="text">
                     <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                   </div>
@@ -274,7 +274,7 @@
                   </div>
                 </div>
                 <div class="card-body text-center">
-                  <div class="client-avatar"><img src="${pageContext.request.contextPath }/static/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
+                  <div class="client-avatar"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
                     <div class="status bg-green"></div>
                   </div>
                   <div class="client-title">
@@ -331,27 +331,27 @@
                 </div>
                 <div class="card-body no-padding">
                   <div class="item d-flex align-items-center">
-                    <div class="image"><img src="${pageContext.request.contextPath }/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="image"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                     <div class="text"><a href="#">
                       <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Aria Smith.   </small></div>
                   </div>
                   <div class="item d-flex align-items-center">
-                    <div class="image"><img src="${pageContext.request.contextPath }/static/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="image"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
                     <div class="text"><a href="#">
                       <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Frank Williams.   </small></div>
                   </div>
                   <div class="item d-flex align-items-center">
-                    <div class="image"><img src="${pageContext.request.contextPath }/static/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="image"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
                     <div class="text"><a href="#">
                       <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Ashley Wood.   </small></div>
                   </div>
                   <div class="item d-flex align-items-center">
-                    <div class="image"><img src="${pageContext.request.contextPath }/static/img/avatar-4.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="image"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-4.jpg" alt="..." class="img-fluid rounded-circle"></div>
                     <div class="text"><a href="#">
                       <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Jason Doe.   </small></div>
                   </div>
                   <div class="item d-flex align-items-center">
-                    <div class="image"><img src="${pageContext.request.contextPath }/static/img/avatar-5.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="image"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-5.jpg" alt="..." class="img-fluid rounded-circle"></div>
                     <div class="text"><a href="#">
                       <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Sam Martinez.   </small></div>
                   </div>
@@ -492,7 +492,7 @@
                   <!-- Item-->
                   <div class="item">
                     <div class="feed d-flex justify-content-between">
-                      <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="${pageContext.request.contextPath }/static/img/avatar-5.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                      <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-5.jpg" alt="person" class="img-fluid rounded-circle"></a>
                         <div class="content">
                           <h5>Aria Smith</h5><span>Posted a new blog </span>
                           <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
@@ -504,7 +504,7 @@
                   <!-- Item-->
                   <div class="item">
                     <div class="feed d-flex justify-content-between">
-                      <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="${pageContext.request.contextPath }/static/img/avatar-2.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                      <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-2.jpg" alt="person" class="img-fluid rounded-circle"></a>
                         <div class="content">
                           <h5>Frank Williams</h5><span>Posted a new blog </span>
                           <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
@@ -517,7 +517,7 @@
                   <!-- Item-->
                   <div class="item clearfix">
                     <div class="feed d-flex justify-content-between">
-                      <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="${pageContext.request.contextPath }/static/img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                      <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>
                         <div class="content">
                           <h5>Ashley Wood</h5><span>Posted a new blog </span>
                           <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
