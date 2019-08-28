@@ -7,19 +7,19 @@
 <html>
     <head>
         <base href="<%=basePath%>">
-        <title>Title</title>
+        <title>Bootstrap fileupload</title>
 
         <%--文件上传静态资源 start--%>
+        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+        <script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-        <script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
@@ -32,6 +32,8 @@
                 uploadUrl:"file/up", //上传的地址
 
                 allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+
+                //allowedFileTypes: ['image'],//图片类型都可上传  allowedFileExtensions，allowedFileTypes二者之一即可，在使用 allowedFileTypes后，allowedFileExtensions将无效。
 
                 //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
 
@@ -91,14 +93,12 @@
             <%--</div>--%>
 
             <div class="container my-4">
-                <form id="fm" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <div class="file-loading">
-                            <input id="upFile" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="file/up" data-theme="fas">
-                        </div>
-                        <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
+                <div class="form-group">
+                    <div class="file-loading">
+                        <input id="upFile" name="file" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="file/up" data-theme="fas">
                     </div>
-                </form>
+                    <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
+                </div>
             </div>
         </div>
     </body>
