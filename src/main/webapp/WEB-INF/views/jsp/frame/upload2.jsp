@@ -26,77 +26,78 @@
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-        <script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/frame/vendor/jquery/jquery.min.js"></script>
         <%--框架静态资源 end--%>
         <%--文件上传静态资源 start--%>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/fr.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/es.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
-    <%--文件上传静态资源 end--%>
+        <%--文件上传静态资源 end--%>
         <script>
-            $("#upFile").fileinput({
-
-                language: 'zh', //设置语言
-
-                uploadUrl:"file/up", //上传的地址
-
-                allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
-
-                //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
-
-                uploadAsync: true, //默认异步上传
-
-                showUpload:false, //是否显示上传按钮
-
-                showRemove :false, //显示移除按钮
-
-                showPreview :false, //是否显示预览
-
-                showCaption:false,//是否显示标题
-
-                browseClass:"btn btn-primary", //按钮样式    
-
-                dropZoneEnabled: false,//是否显示拖拽区域
-
-                //minImageWidth: 50, //图片的最小宽度
-
-                minImageHeight: 50,//图片的最小高度
-
-                //maxImageWidth: 1000,//图片的最大宽度
-
-                //maxImageHeight: 1000,//图片的最大高度
-
-                //maxFileSize:0,//单位为kb，如果为0表示不限制文件大小
-
-                //minFileCount: 0,
-
-                maxFileCount:1, //表示允许同时上传的最大文件个数
-
-                enctype:'multipart/form-data',
-
-                validateInitialCount:true,
-
-                previewFileIcon: "<iclass='glyphicon glyphicon-king'></i>",
-
-                msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
-
-            }).on("fileuploaded", function (event, data, previewId, index){
-                alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+//            $(".btn-warning").on('click', function () {
+//                var $el = $("#file-4");
+//                if ($el.attr('disabled')) {
+//                    $el.fileinput('enable');
+//                } else {
+//                    $el.fileinput('disable');
+//                }
+//            });
+//            $(".btn-info").on('click', function () {
+//                $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
+//            });
+            /*
+             $('#file-4').on('fileselectnone', function() {
+             alert('Huh! You selected no files.');
+             });
+             $('#file-4').on('filebrowse', function() {
+             alert('File browse clicked for #file-4');
+             });
+             */
+            $(document).ready(function () {
+                $("#test-upload").fileinput({
+                    'theme': 'fas',
+                    'showPreview': false,
+                    'allowedFileExtensions': ['jpg', 'png', 'gif'],
+                    'elErrorContainer': '#errorBlock'
+                });
+                $("#kv-explorer").fileinput({
+                    'theme': 'explorer-fas',
+                    'uploadUrl': '#',
+                    overwriteInitial: false,
+                    initialPreviewAsData: true,
+                    initialPreview: [
+                        "http://lorempixel.com/1920/1080/nature/1",
+                        "http://lorempixel.com/1920/1080/nature/2",
+                        "http://lorempixel.com/1920/1080/nature/3"
+                    ],
+                    initialPreviewConfig: [
+                        {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                        {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                        {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}
+                    ]
+                });
+                /*
+                 $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+                 alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+                 });
+                 */
             });
         </script>
     </head>
     <body>
         <div class="content-inner">
             <!-- Page Header-->
-            <header class="page-header">
+            <header class="page-header" style="border:1px solid red; width: 100%;">
                 <div class="container-fluid">
                     <h2 class="no-margin-bottom">Upload</h2>
                 </div>
@@ -105,29 +106,23 @@
             <div class="breadcrumb-holder container-fluid">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-                    <li class="breadcrumb-item active">Upload</li>
+                    <li class="breadcrumb-item active">Upload222</li>
                 </ul>
             </div>
 
-            <%--基本格式--%>
-            <%--<div class="container my-4">--%>
-                <%--<form id="fm" enctype="multipart/form-data">--%>
-                    <%--<div class="form-group">--%>
-                        <%--<div class="file-loading">--%>
-                            <%--<input id="upFile" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#" data-theme="fas">--%>
-                        <%--</div>--%>
-                        <%--<p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>--%>
-                    <%--</div>--%>
-                <%--</form>--%>
-            <%--</div>--%>
-
             <div class="container my-4">
-                <form id="fm" enctype="multipart/form-data">
+                <h1>Bootstrap File Input Examples
+                    <small><a href="https://github.com/kartik-v/bootstrap-fileinput-samples"><i
+                            class="glyphicon glyphicon-download"></i> Download Sample Files</a></small>
+                </h1>
+                <hr>
+
+                <form enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="file-loading">
-                            <input id="upFile" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="file/up" data-theme="fas">
+                            <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#" data-theme="fas">
+                            <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
                         </div>
-                        <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
                     </div>
                 </form>
             </div>

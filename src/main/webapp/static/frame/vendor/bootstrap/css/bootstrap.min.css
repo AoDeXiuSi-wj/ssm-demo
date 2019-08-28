@@ -3367,6 +3367,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .input-group-prepend {
+    margin-top: 3px;
     margin-right: -1px
 }
 
