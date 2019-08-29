@@ -10,11 +10,15 @@
     <title>文件上传</title>
     <base href="<%=basePath%>">
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
     <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-    <script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js"></script>
-    <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath }/static/jquery.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath }/static/bootstrap.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
 </head>
 <body>
@@ -45,7 +49,7 @@
         control.fileinput({
             language: 'zh', //设置语言
             uploadUrl: "file/up", //上传的地址
-            allowedFileExtensions: ['jpg', 'gif', 'png','doc','docx','pdf','ppt','pptx','txt'],//接收的文件后缀
+            allowedFileExtensions: ['jpg','jpeg','gif', 'png','doc','docx','pdf','ppt','pptx','txt'],//接收的文件后缀
             maxFilesNum : 1,//上传最大的文件数量
             //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
             uploadAsync: true, //默认异步上传
@@ -64,13 +68,13 @@
             minFileCount: 1, //每次上传允许的最少文件数。如果设置为0，则表示文件数是可选的。默认为0
             maxFileCount: 5, //每次上传允许的最大文件数。如果设置为0，则表示允许的文件数是无限制的。默认为0
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",//当检测到用于预览的不可读文件类型时，将在每个预览文件缩略图中显示的图标。默认为<i class="glyphicon glyphicon-file"></i>
-            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",//字符串，当文件数超过设置的最大计数时显示的消息 maxFileCount。默认为：选择上传的文件数（{n}）超出了允许的最大限制{m}。请重试您的上传！,
-            layoutTemplates:{
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！"//字符串，当文件数超过设置的最大计数时显示的消息 maxFileCount。默认为：选择上传的文件数（{n}）超出了允许的最大限制{m}。请重试您的上传！,
+            /*layoutTemplates:{//对象用于渲染布局的每个部分的模板配置。您可以设置以下模板来控制窗口小部件布局.eg:去除上传图标
                 actionUpload:'',//去除上传预览缩略图中的上传图片
                 actionZoom:'',   //去除上传预览缩略图中的查看详情预览的缩略图标
                 actionDownload:'', //去除上传预览缩略图中的下载图标
                 actionDelete:'', //去除上传预览的缩略图中的删除图标
-            }//对象用于渲染布局的每个部分的模板配置。您可以设置以下模板来控制窗口小部件布局.eg:去除上传图标
+            }*/
         }).on('filepreupload', function(event, data, previewId, index) {     //上传中
             var form = data.form, files = data.files, extra = data.extra,
             response = data.response, reader = data.reader;
@@ -91,8 +95,10 @@
 
     }
 
-    //fileuploaded此事件仅针对ajax上传触发，并在每个缩略图文件上传完成后触发。此事件仅针对ajax上传并在以下情况下触发：当点击每个预览缩略图中的上传图标并且文件上传成功时，或者当你有 uploadAsync设置为true您已触发批量上传。在这种情况下，fileuploaded每一个人选择的文件被上传成功后，触发事件。
-    var id_str = '';
+    //fileuploaded此事件仅针对ajax上传触发，并在每个缩略图文件上传完成后触发。此事件仅针对ajax上传并在以下情况下触发：
+    // 当点击每个预览缩略图中的上传图标并且文件上传成功时，或者当你有 uploadAsync设置为true您已触发批量上传。
+    // 在这种情况下，fileuploaded每一个人选择的文件被上传成功后，触发事件。
+    /*var id_str = '';
     $('#input-id').on('fileuploaded', function(event, data, previewId, index) {
         if(typeof(data.response.id) != 'undefined'){
             id_str = id_str+data.response.id+',';
@@ -107,7 +113,7 @@
         setTimeout(function(){ //执行延时关闭
             closeSelf();
         },1000);
-    });
+    });*/
 </script>
 </body>
 </html>
