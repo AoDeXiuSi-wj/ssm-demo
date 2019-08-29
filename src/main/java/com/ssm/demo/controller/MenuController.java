@@ -9,18 +9,19 @@ public class MenuController {
     @RequestMapping("/menu")
     public String switchMenu(String type){
         String url="";
-        System.out.println("type:"+type);
         if(type!=null) {
             if (type.equals("home")) {
                 url = "frame/home";
-            } else if (type.equals("tables")){
+            } else if ("tables".equals(type)){
                 url = "frame/tables";
-            } else if (type.equals("charts")){
+            } else if ("charts".equals(type)){
                 url = "frame/charts";
-            } else if (type.equals("forms")){
+            } else if ("forms".equals(type)){
                 url = "frame/forms";
-            } else if (type.equals("upload")){
-                url = "frame/upload";
+            } else if ("oneupload".equals(type)){
+                url = "frame/upload_one";
+            } else if ("moreupload".equals(type)){
+                url = "frame/upload_more";
             } else {
                 url = "frame/home";
             }

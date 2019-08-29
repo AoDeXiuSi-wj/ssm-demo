@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -26,8 +25,9 @@
         <%--文件上传静态资源 end--%>
         <script>
             $("#upFile").fileinput({
+                theme: "gly",
 
-                language: 'zh', //设置语言
+                language: "zh", //设置语言
 
                 uploadUrl:"file/up", //上传的地址
 
@@ -53,7 +53,7 @@
 
                 //minImageWidth: 50, //图片的最小宽度
 
-                minImageHeight: 50,//图片的最小高度
+                minImageHeight: 100,//图片的最小高度
 
                 //maxImageWidth: 1000,//图片的最大宽度
 

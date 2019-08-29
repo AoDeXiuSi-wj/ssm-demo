@@ -95,7 +95,7 @@ public class FileUploadController {
                         //上传
                         file.transferTo(targetFile);
                         //完整路径
-                        fileSrc = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/"+ path_deposit + origName;
+                        fileSrc = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/"+ path_deposit +"/"+ origName;
                         System.out.println("\033[32;4m" + "\n" + "图片上传成功:"+fileSrc + "\n" + "\033[0m");
                         return fileSrc;
                     }

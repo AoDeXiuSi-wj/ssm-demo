@@ -150,8 +150,8 @@
                         <li><a href="javascript:void(0)" onclick="reForword(this)" name="forms"> <i class="icon-padnote"></i>Forms </a></li>
                         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>File Management</a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                                <li><a href="#">Page</a></li>
-                                <li><a href="javascript:void(0)" onclick="reForword(this)" name="upload"><i>Upload File</i></a></li>
+                                <li><a href="javascript:void(0)" onclick="reForword(this)" name="oneupload"><i>One File Upload</i></a></li>
+                                <li><a href="javascript:void(0)" onclick="reForword(this)" name="moreupload"><i>More File Upload</i></a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>

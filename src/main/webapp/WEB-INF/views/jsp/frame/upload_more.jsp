@@ -9,41 +9,30 @@
         <base href="<%=basePath%>">
         <title>Title</title>
         <%--框架静态资源 start--%>
-        <!-- Bootstrap CSS-->
         <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/css/bootstrap.min.css">
-        <!-- Font Awesome CSS-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/font-awesome/css/font-awesome.min.css">
-        <!-- Fontastic Custom icon font-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/fontastic.css">
-        <!-- Google fonts - Poppins -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
-        <!-- theme stylesheet-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/style.default.css" id="theme-stylesheet">
-        <!-- Custom stylesheet - for your changes-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/css/custom.css">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="${pageContext.request.contextPath }/static/frame/img/favicon.ico">
-        <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
         <script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
         <%--框架静态资源 end--%>
         <%--文件上传静态资源 start--%>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
+        <%--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">--%>
+        <%--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">--%>
+        <%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>--%>
+        <%--<link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>--%>
+        <%--<link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap.min.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>--%>
     <%--文件上传静态资源 end--%>
         <script>
             $(function () {
-                initFileInput("upFile");
+                initFileInput("input-id");
             })
 
             function initFileInput(ctrlName) {
@@ -51,7 +40,8 @@
                 control.fileinput({
                     language: 'zh', //设置语言
                     uploadUrl: "file/up", //上传的地址
-                    allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                    allowedFileExtensions: ['jpg', 'gif', 'png','doc','docx','pdf','ppt','pptx','txt'],//接收的文件后缀
+                    maxFilesNum : 5,//上传最大的文件数量
                     //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
                     uploadAsync: true, //默认异步上传
                     showUpload: false, //是否显示上传按钮
@@ -64,9 +54,9 @@
                     //minImageHeight: 50,//图片的最小高度
                     //maxImageWidth: 1000,//图片的最大宽度
                     //maxImageHeight: 1000,//图片的最大高度
-                    //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
-                    minFileCount: 0,
-                    maxFileCount: 10, //表示允许同时上传的最大文件个数
+                    maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+                    //minFileCount: 0,
+                    //maxFileCount: 10, //表示允许同时上传的最大文件个数
                     enctype: 'multipart/form-data',
                     validateInitialCount:true,
                     previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
@@ -81,8 +71,6 @@
 
                 }).on('fileerror', function(event, data, msg) {  //一个文件上传失败
                     console.log('文件上传失败！'+data.id);
-
-
                 })
             }
         </script>
