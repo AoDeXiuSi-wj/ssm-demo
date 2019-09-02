@@ -8,31 +8,31 @@
     <head>
         <base href="<%=basePath%>">
         <title>Title</title>
-        <%--框架静态资源 start--%>
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/frame/vendor/bootstrap/css/bootstrap.min.css">
-        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-        <script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap.min.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
-        <%--框架静态资源 end--%>
-        <%--文件上传静态资源 start--%>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
-        <script src="${pageContext.request.contextPath }/static/bootstrap.min.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+        <%--<link href="${pageContext.request.contextPath }/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"  crossorigin="anonymous">--%>
+        <%--<link href="${pageContext.request.contextPath }/static/bootstrap-fileinput-master/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>--%>
+        <%--<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet"  crossorigin="anonymous">--%>
+        <%--<link href="${pageContext.request.contextPath }/static/bootstrap-fileinput-master/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>--%>
+        <%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/plugins/sortable.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput-master/js/fileinput.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>--%>
+        <%--<script src="${pageContext.request.contextPath }/static/bootstrap-fileinput-master/js/locales/zh.js" type="text/javascript"></script>--%>
+
+        <link href="${pageContext.request.contextPath }/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"  crossorigin="anonymous">
+        <link href="${pageContext.request.contextPath }/static/bootstrap-fileinput-master/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+        <script src="${pageContext.request.contextPath }/static/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput-master/js/fileinput.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/fas/theme.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
-    <%--文件上传静态资源 end--%>
+        <script src="${pageContext.request.contextPath }/static/bootstrap-fileinput-master/js/locales/zh.js" type="text/javascript"></script>
         <script>
             $(function () {
-                initFileInput("input-id");
+                initFileInput("upFile");
             })
 
             function initFileInput(ctrlName) {
@@ -48,7 +48,7 @@
                     showRemove : true, //显示移除按钮
                     showPreview : true, //是否显示预览
                     showCaption: false,//是否显示标题
-                    browseClass: "btn btn-primary", //按钮样式
+                    browseClass: "btn btn-success", //按钮样式
                     //dropZoneEnabled: true,//是否显示拖拽区域
                     //minImageWidth: 50, //图片的最小宽度
                     //minImageHeight: 50,//图片的最小高度
@@ -61,7 +61,12 @@
                     validateInitialCount:true,
                     previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
                     msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
-
+                    layoutTemplates:{//对象用于渲染布局的每个部分的模板配置。您可以设置以下模板来控制窗口小部件布局.eg:去除上传图标
+                        actionUpload:'',//去除上传预览缩略图中的上传图片
+                        actionZoom:'',   //去除上传预览缩略图中的查看详情预览的缩略图标
+                        actionDownload:'', //去除上传预览缩略图中的下载图标
+                        actionDelete:'', //去除上传预览的缩略图中的删除图标
+                    },
                 }).on('filepreupload', function(event, data, previewId, index) {     //上传中
                     var form = data.form, files = data.files, extra = data.extra,
                         response = data.response, reader = data.reader;
@@ -91,25 +96,13 @@
                 </ul>
             </div>
 
-            <%--基本格式--%>
-            <%--<div class="container my-4">--%>
-                <%--<form id="fm" enctype="multipart/form-data">--%>
-                    <%--<div class="form-group">--%>
-                        <%--<div class="file-loading">--%>
-                            <%--<input id="upFile" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#" data-theme="fas">--%>
-                        <%--</div>--%>
-                        <%--<p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>--%>
-                    <%--</div>--%>
-                <%--</form>--%>
-            <%--</div>--%>
-
             <div class="container my-4">
-                    <div class="form-group">
-                        <div class="file-loading">
-                            <input id="upFile" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="file/up" data-theme="fas">
-                        </div>
-                        <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
+                <div class="form-group">
+                    <div class="file-loading">
+                        <input id="upFile" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="file/up" data-theme="fas">
                     </div>
+                    <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
+                </div>
             </div>
         </div>
     </body>

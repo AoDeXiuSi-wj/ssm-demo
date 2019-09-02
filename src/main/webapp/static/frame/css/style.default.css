@@ -312,7 +312,7 @@ input {
 }
 
 .page {
-  background: #EEF5F9;
+  background: #ffffff;//EEF5F9
   overflow-y: visible;
 }
 
@@ -1532,11 +1532,12 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
 */
 footer.main-footer {
   position: relative;
-  bottom: 0px;
   width: 100%;
   background: #2f333e;
   color: #fff;
   padding: 20px 10px;
+  position: absolute;
+  bottom: 0px;
 }
 
 footer.main-footer a {

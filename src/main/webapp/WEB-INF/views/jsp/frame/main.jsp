@@ -44,6 +44,12 @@
         <!-- Main File-->
         <script src="${pageContext.request.contextPath }/static/frame/js/front.js"></script>
         <%--框架静态资源 end--%>
+        <script>
+            $(function () {
+                //alert(document.body.offsetHeight);
+            })
+
+        </script>
     </head>
     <body style="overflow-y: hidden">
         <div class="page" style="height: 695px;border: 0px solid green;overflow-y: hidden">
@@ -133,7 +139,7 @@
             </header>
             <div class="page-content d-flex align-items-stretch" style="border:0px solid red;">
                 <!-- Side Navbar -->
-                <nav class="side-navbar" style="height: 620px;">
+                <nav class="side-navbar" style="height: 610px;"> <%--style="height: 620px;"--%>
                     <!-- Sidebar Header-->
                     <div class="sidebar-header d-flex align-items-center">
                         <div class="avatar"><img src="${pageContext.request.contextPath }/static/frame/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
@@ -169,7 +175,7 @@
             </div>
         </div>
         <!-- Page Footer-->
-        <footer class="main-footer">
+        <footer class="main-footer" style="margin-bottom: -10px;">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
