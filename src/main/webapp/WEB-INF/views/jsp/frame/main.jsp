@@ -158,7 +158,7 @@
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="javascript:void(0)" onclick="reForword(this)" name="oneupload"><i>One File Upload</i></a></li>
                                 <li><a href="javascript:void(0)" onclick="reForword(this)" name="moreupload"><i>More File Upload</i></a></li>
-                                <li><a href="#">Page</a></li>
+                                <li><a href="javascript:void(0)" onclick="reForword(this)" name="testupload">Test File Upload</a></li>
                             </ul>
                         </li>
                     </ul><span class="heading">Extras</span>

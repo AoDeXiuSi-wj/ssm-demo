@@ -22,6 +22,8 @@ public class MenuController {
                 url = "frame/upload_one";
             } else if ("moreupload".equals(type)){
                 url = "frame/upload_more";
+            } else if ("testupload".equals(type)){
+                url = "frame/upload_test";
             } else {
                 url = "frame/home";
             }
