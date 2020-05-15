@@ -27,7 +27,7 @@
     <slf4j.version>1.7.7</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
     <!-- jackson包版本 -->
-    <jackson.version>2.7.1</jackson.version>
+    <jackson.version>2.11.0</jackson.version>
     <!--junit版本-->
     <junit.version>4.11</junit.version>
     <commcons-dbcp>1.2.2</commcons-dbcp>
